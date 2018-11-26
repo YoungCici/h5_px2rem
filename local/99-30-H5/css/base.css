@@ -1,0 +1,32 @@
+html{
+    padding: 0;
+    margin: 0;
+    font-size: calc(100vw / 7.5);
+    width: 100%;
+    min-height: 100%;
+}
+body{
+    width: 100%;
+    min-height: 100%;
+    font-size: 0.24rem;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: url(../img/bg.png) no-repeat center;
+    background-size: 100% 100%;
+}

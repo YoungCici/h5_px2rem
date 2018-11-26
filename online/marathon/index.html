@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="Access-Control-Allow-Origin" content="*"> -->
+    <title>活动第1天</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/px2rem.js"></script>
+    <style>
+        .container-box{
+            width: 100%;
+            height: auto;
+        }
+        header{
+            background: url(./img/banner1.png) no-repeat center;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 3.89rem;
+            position: absolute;
+            z-index: 111;
+        }
+        article{
+            background: url(./img/detailContent.png) no-repeat center;
+            background-size: 100% 100%;
+            height: 8.08rem;
+            width: 100%;
+            margin-top: 2.32rem;
+        }
+        footer{
+            width: 100%;
+            height: auto;
+            margin-bottom: 0.76rem;
+            margin-top: -0.5rem;
+        }
+        .btns1{
+            width: 100%;
+            height: 1.01rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            margin-bottom: 0.4rem;
+        }
+        .startBtn{
+            width: 3.16rem;
+            height: 1.01rem;
+            background: url(./img/start.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+        .unstartBtn{
+            width: 3.16rem;
+            height: 1.01rem;
+            background: url(./img/unstart.png) no-repeat center;
+            background-size: 100% 100%;
+            display: none;
+        }
+        .btns2{
+            width: 100%;
+            height: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+        .ruleBtn{
+            background: url(./img/ruleBtn.png) no-repeat center;
+            background-size: 100% 100%;
+            width: 1.21rem;
+            height: 0.34rem;
+            margin-right: 0.465rem;
+        }
+        .detailBtn{
+            background: url(./img/detailBtn.png) no-repeat center;
+            background-size: 100% 100%;
+            width: 1.21rem;
+            height: 0.34rem;
+            margin-left: 0.465rem;
+        }
+        .msg-box{
+            width: 80%;
+            height: 1rem;
+            line-height: 1rem;
+            border-radius: 0.3rem;
+            background: rgba(0,0,0,0.5);
+            margin-left: 10%;
+            color: #fff;
+            font-size: 0.3rem;
+            text-align: center;
+            position: absolute;
+            top: 3rem;
+            z-index: 222;
+            display: none;
+        }
+        @media screen and (min-width: 750px) {
+            header{
+                background: url(./img/banner1.png) no-repeat center;
+                background-size: 100% 100%;
+                width: 100%;
+                height: 3rem;
+                position: absolute;
+                z-index: 111;
+            }
+            article{
+                background: url(./img/detailContent.png) no-repeat center;
+                background-size: 100% 100%;
+                height: 8.08rem;
+                width: 100%;
+                margin-top: 1.74rem;
+            }
+        }
+        .pup-box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.7);
+            width: 100%;
+            height: 100%;
+            z-index: 333;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .pup-content{
+			display:none;
+            background: #fff;
+            border-radius: 0.2rem;
+            width: 4.77rem;
+            height: 2.73rem;
+            padding: 0.31rem;
+        }
+        .close-div{
+            width: 100%;
+            height: 0.31rem;
+            text-align: right;
+        }
+        .close-btn{
+            width: 0.37rem;
+            height: 0.37rem;
+            border-radius: 50%;
+        }
+        .yes-div{
+            width: 100%;
+            height: 0.76rem;
+            margin-top: 0.42rem;
+            text-align: center;
+        }
+        .yes-btn{
+            height: 0.76rem;
+            width: 2.39rem;
+        }
+        .tips-ul{
+            margin: 0;
+            padding: 0;
+            height: auto;
+            width: 100%;
+            text-align: center;
+            list-style: none;
+            color: #353535;
+            font-family: 'PingFang-SC-Regular';
+        }
+        .tips-title{
+            height: auto;
+            width: 100%;
+        }
+        .tips-word{
+            height: 0.38rem;
+            width: 0.76rem;
+        }
+        .tips-text1{
+            margin-top: 0.3rem;
+            margin-bottom: 0.2rem;
+            font-size: 0.3rem;
+        }
+        .tips-text2{
+			
+            margin-bottom: 0.32rem;
+            font-size: 0.24rem;
+        }
+        .pup-copy-wechat{
+			display:none;
+            background: url('./img/pupover.png') no-repeat center;
+            background-size: 100% 100%;
+            height: 5.86rem;
+            width: 5.08rem;
+            border-radius: 0.2rem;
+            padding: 0.31rem;
+        }
+        .copy-div{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            height: 4.62rem;
+            margin-top: 0.31rem;
+            text-align: center;
+        }
+        .copy-btn{
+            width: 2.39rem;
+            height: 0.76rem;
+        }
+        #wechat_code{
+            position: absolute;
+            z-index: -11;
+            width: 1rem;
+            height: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-box">
+            <header></header>
+            <article></article>
+            <footer>
+                <div class="btns1">
+                    <span class='startBtn'></span>
+                    <span class="unstartBtn"></span>
+                </div>
+                <div class='btns2'>
+                    <span class="ruleBtn"></span>
+                    <span class="detailBtn"></span>
+                </div>
+            </footer>
+        </div>
+        <div class="msg-box">网络异常，请检查网络</div>
+    </div>
+    <!-- 弹框 -->
+    <div class="pup-box">
+        <div class="pup-content">
+            <div class="close-div">
+                <img src="./img/close.png" alt="x" class="close-btn">
+            </div>
+            <ul class="tips-ul">
+                <li class='tips-title'>
+                    <img src="./img/tipWord.png" alt="提示" class='tips-word'>
+                </li>
+                <li class='tips-text1'>
+                    本人活动已结束
+                </li>
+                <li class='tips-text2'>
+                    敬请期待下一次参与
+                </li>
+            </ul>
+            <div class="yes-div">
+                <img src="./img/yesBtn.png" alt="知道了" class="yes-btn">
+            </div>
+        </div>
+        <div class="pup-copy-wechat">
+            <div class="close-div">
+                <img src="./img/close.png" alt="x" class="close-btn">
+            </div>
+            <div class="copy-div">
+                <input id="wechat_code" readonly>
+                <img src="./img/copyWechat.png" alt="复制微信号" class="copy-btn" id="copyWechat" onclick="copy();">
+            </div>
+        </div>
+    </div>
+	<script src="https://cdn.yihuzhijia.cn/static/frontend/js/zepto.min.js"></script>
+	<script>
+		//活动数据初始化
+		var id = "4831241513cd4552bfa7c4cdfd6e63f2";
+		var data = {
+			id:"4831241513cd4552bfa7c4cdfd6e63f2",
+			title:"参赛中",
+			exam_title:"2019护考冬令营之马拉松赛",
+			desc:"2019护考冬令营之马拉松赛",
+			exam_uri:"/marathon/questions",
+			exam_time:"20",
+			question_num:"20",
+			callback_uri:"https://cdn.yihuzhijia.cn/event/2018/marathon/index.html"
+		};
+		var appPath = 'https://v2.api.yihuzhijia.cn/';
+		var staticPath = 'https://cdn.yihuzhijia.cn/static/';
+	</script>
+	<script src="https://cdn.yihuzhijia.cn/static/frontend/js/app.js"></script>
+    <script>
+       $(window).on("resize",function(){
+            var currentHeight = $('.container-box').height();
+            var bodyHeight = $(window).height();
+            if (bodyHeight >= currentHeight) {
+                $('.container').css({
+                    height: bodyHeight
+                })
+                $('.pup-box').css({
+                    height: bodyHeight
+                })
+            } else {
+                $('.container').css({
+                    height: currentHeight
+                })
+                $('.pup-box').css({
+                    height: currentHeight
+                })
+            }
+        }).resize();
+        var initCompleteCallback = function(){
+			doDisableComment();//记录点击量
+            // 初始化
+            $('.pup-box').hide();
+            $('.pup-content').hide();
+            $('.pup-copy-wechat').hide();
+            // 全局变量
+            // var url_ = 'https://api.local.yihuzhijia.cn';
+            var url_ = 'https://v2.api.yihuzhijia.cn';
+            authoritize = 0;
+			var n = 1;
+            var code = GetQueryString("userCode");
+            // 初始判断
+                // code存在--即为已登录状态，进行数据请求
+                $.ajax({
+                    type: 'POST',
+                    // 测试
+                    url: url_ + '/marathon/index',
+                    // 服务器
+                    // url: 'https://v2.api.yihuzhijia.cn/marathon/index',
+                    dataType:'json',
+                    headers: {
+                        code: code
+                    },
+                    data: {},
+                    success: function(res) {
+                        // 微信号
+						
+                        $('#wechat_code').val(res.value.wechat);
+						
+                        // 判断活动状态
+                        n = res.value.days;
+                        authoritize = res.value.authoritize;
+                        // 活动第七天后，参赛按钮置灰，点击提示--本人活动已结束，敬请期待下一次参与
+                        if (n > 7 || authoritize === 2) {
+                            $('.startBtn').hide();
+                            $('.unstartBtn').show();
+							nativeCallback("browser_title", {title:'活动已截止'});
+                        } else {
+							nativeCallback("browser_title", {title:'活动第' + n + '天'});
+                        }
+						
+                    },
+                    error: function(err) {
+                        console.log(err)
+                    }
+                })
+
+            // 点击事件
+            // 关闭弹窗
+            $('.close-btn').click(function() {
+                $('.pup-box').hide()
+            })
+            $('.yes-btn').click(function() {
+                $('.pup-box').hide()
+            })
+            // 复制微信号点击隐藏-关闭弹框
+            $('.copy-btn').click(function() {
+                $('.pup-box').hide()
+            })
+
+            // 活动规则跳转
+            $('.ruleBtn').click(function() {
+                var netFlag = window.navigator.onLine // 检查网络状态
+                if (netFlag === false) {
+                    // 网络异常
+                    $('.msg-box').text('网络异常，请检查网络');
+                    $('.msg-box').show(function() {
+                        setTimeout(function() {
+                            $('.msg-box').hide()
+                        }, 5000)
+                    })
+                } else {
+                    // 网络正常
+                    window.location.href = './rule.html'
+                }
+            })
+
+            // 奖励明细跳转
+            $('.detailBtn').click(function() {
+                var netFlag = window.navigator.onLine // 检查网络状态
+				
+                if (netFlag === false) {
+                    // 网络异常
+                    $('.msg-box').text('网络异常，请检查网络');
+                    $('.msg-box').show(function() {
+                        setTimeout(function() {
+                            $('.msg-box').hide()
+                        }, 5000)
+                    })
+                } else if( n > 7 || authoritize == 2){
+					//过期
+					 $('.pup-box').show()
+					 $('.pup-content').show()
+				} else {
+					if(!code){
+						nativeCallback("login", data);
+					} else if (authoritize === 0) {
+						// 无权限提示添加微信，报名参加
+						$('.pup-box').show()
+						$('.pup-copy-wechat').show()
+					} else if (authoritize === 3) {
+						// 加入黑名单--操作异常，请联系客服 弹框
+						$('.msg-box').text('操作异常，请联系客服');
+						$('.msg-box').show(function() {
+							setTimeout(function() {
+								$('.msg-box').hide()
+							}, 3000)
+						});
+					}else if (authoritize >= 1) {
+						window.location.href = './detail.html?userCode='+code;
+					}
+                }
+            })
+
+            // 灰色参赛按钮点击事件--显示提示弹框
+            $('.unstartBtn').click(function() {
+                $('.pup-box').show()
+                $('.pup-content').show()
+            })
+
+            // 点击参赛事件
+            $('.startBtn').click(function() {
+                // 是否有权限authoritize--0:没有权限 --1：有权限 --2：活动已结束
+				if(!code){
+					nativeCallback("login", data);
+				} else if (authoritize === 0) {
+                    // 无权限提示添加微信，报名参加
+                    $('.pup-box').show()
+                    $('.pup-copy-wechat').show()
+                } else if (authoritize === 1) {
+					doEventExamClick();
+                    // 有权限进入答题页面--跳入APP
+                } else if (authoritize === 3) {
+                    // 加入黑名单--操作异常，请联系客服 弹框
+                    $('.msg-box').text('操作异常，请联系客服');
+                    $('.msg-box').show(function() {
+                        setTimeout(function() {
+                            $('.msg-box').hide()
+                        }, 3000)
+                    });
+                }
+            })
+        }
+        // 复制微信号方法
+        function copy() {
+            var input = document.getElementById('wechat_code');
+            input.select();
+            input.setSelectionRange(0, input.value.length),
+            document.execCommand('Copy');
+            $('.msg-box').text('微信号复制成功');
+            $('.msg-box').show(function() {
+                setTimeout(function() {
+                    $('.msg-box').hide()
+				},3000);
+			});
+		}
+	</script>
+</body>
+</html>

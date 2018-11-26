@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>活动规则</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/px2rem.js"></script>
+    <style>
+        .container{
+            padding-bottom: 0;
+            padding-top: 0.3rem;
+        }
+        .container-box{
+            width: 6rem;
+            height: auto;
+            padding: 0.3rem 0.25rem 0 0.25rem;
+            border-radius: 0.1rem;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: rgba(255,247,247,0.8);
+            -webkit-box-flex: 1;
+            -webkit-box-flex: 1;
+            flex: 1;
+        }
+        .title{
+            font-size: 0.3rem;
+            color: #773127;
+            font-family: 'PingFang-SC-Bold';
+            margin-bottom: 0.2rem;
+        }
+        .ol-content{
+            padding-left: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .li-ol-list{
+            padding-left: 0.3rem;
+        }
+        li{
+            font-size: 0.24rem;
+            line-height: 0.4rem;
+            color: #353535;
+        }
+        .li-item-none{
+            list-style: none;
+        }
+        .div-join{
+            width: 100%;
+            height: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+        }
+        .joinBtn{
+            height: 1.01rem;
+            width: 3.16rem;
+            background: url(./img/jionBtn.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-box">
+            <div class="title">一.怎么参与活动？</div>
+            <ol class="ol-content">
+                <li>在咨询老师处报名参加--报名成功--开通权限</li>
+                <li>点击活动页面进入答题页面，从2018年11月26号计算为第1天，7天后活动结束！</li>
+                <li>每天答题满20题</li>
+                <li>每天分享1次到朋友圈</li>
+                <li>活动报名时间：2018年11月20日-2018年11月25日</li>
+                <li>活动结束时间：2018年11月26日-2018年12月02日</li>
+            </ol>
+            <div class="title">二.怎么获得奖励？</div>
+            <ol class="ol-content">
+                <li>条件：返现必须达到每天做满20题并分享到朋友圈1次</li>
+                <li>
+                    连续天数获得的金额
+                    <ol class="li-ol-list" type="a">
+                        <li>连续1天&nbsp;&nbsp;获得1元</li>
+                        <li>连续2天&nbsp;&nbsp;获得2元</li>
+                        <li>连续3天&nbsp;&nbsp;获得3元</li>
+                        <li>连续4天&nbsp;&nbsp;获得4元</li>
+                        <li>连续5天&nbsp;&nbsp;获得5元</li>
+                        <li>连续6天&nbsp;&nbsp;获得6元</li>
+                        <li>连续7天&nbsp;&nbsp;获得9元</li>
+                        <li class="li-item-none">连续7天累计获得金额30元</li>
+                        <li class='li-item-none'>若中途中断，将从连续1天开始计算金额，总共活动时间仅有7天，请注意时间！</li>
+                    </ol>
+                </li>
+                <li>任务成功即可申请返现，到账时间为3个工作日内！</li>
+                <li>如有疑问请添加微信：xiaowanji7</li>
+            </ol>
+            <div class='div-join'>
+                <span class="joinBtn"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(window).on('resize',function() {
+            var windowHeight = $(window).height();
+            $('.container').height(windowHeight);
+            if ($(window).width() > 750 || $(window).width() > $(window).height()) {
+                resizes(150);
+            } else {
+                resizes(0);
+            }
+        }).resize();
+        // 方法体
+        function toIndex() {
+            location.href = './index.html';
+        }
+        function resizes(height_) {
+            //屏幕自适应
+            var bodyHeight = $(window).height();
+            var currentHeight = $('.container-box').height() + 0.5 * bodyHeight / 7.5;
+            if (bodyHeight >= currentHeight) {
+                $('.container').css({
+                    height: bodyHeight
+                })
+            } else {
+                $('.container').css({
+                    height: currentHeight + height_
+                })
+            }
+        }
+        $(function(){
+            resizes(0);
+            $(".joinBtn").click(function(){
+				window.history.go(-1);
+			})
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>微信授权步骤</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/px2rem.js"></script>
+    <style>
+        .ul-guide{
+            list-style: none;
+            padding-left: 0.5rem;
+            font-size: 0.28rem;
+            font-family: 'PingFang-SC-Regular';
+            color: #353535;
+            padding-top: 0.4rem;
+            padding-bottom: 0.49rem;
+            margin-top: 0;
+        }
+        .li-item{
+            margin-bottom: 0.3rem;
+        }
+        .li-item-red{
+            font-size: 0.34rem;
+            color: #ff0f0f;
+            font-family: 'PingFang-SC-Bold';
+            font-weight: bold;
+        }
+        .li-img{
+            width: 100%;
+            height: auto;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        .li-img > img{
+            width: 2.95rem;
+            height: 5.24rem;
+            margin-bottom: 0.5rem;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide">
+        <ul class="ul-guide">
+            <li class="li-item">
+                第一步：关注“医护之家官微”服务号
+            </li>
+            <li class="li-img">
+                <img src="./img/first.png" alt="医护之家官微">
+            </li>
+            <li class="li-item">
+                第二步：点击“授权”按钮
+            </li>
+            <li class="li-img">
+                <img src="./img/second.png" alt="授权">
+            </li>
+            <li class="li-item">
+                第三步：绑定注册医护之家APP的手机号
+            </li>
+            <li class="li-img">
+                <img src="./img/forth.png" alt="绑定APP手机号">
+            </li>
+            <li class="li-item li-item-red">
+                第四步：重启app，然后点击微信提现即可
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
